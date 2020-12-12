@@ -84,11 +84,14 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_c,      focusstack,     SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
-	{ MODKEY,                       XK_p,      focusstack,     SHCMD("rofi-pass") },
+	{ MODKEY,                       XK_r,      spawn,     SHCMD("rofi -show run") },
+	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi -show ssh") },
+	{ MODKEY,                       XK_w,      spawn,     SHCMD("rofi -show windows") },
+	{ MODKEY,                       XK_c,      spawn,     SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
+	{ MODKEY,                       XK_p,      spawn,     SHCMD("rofi-pass") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
