@@ -89,7 +89,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_r,      spawn,     SHCMD("rofi -show run") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi -show ssh") },
-	{ MODKEY,                       XK_w,      spawn,     SHCMD("rofi -show windows") },
+	{ MODKEY,                       XK_w,      spawn,     SHCMD("rofi -show window") },
 	{ MODKEY,                       XK_c,      spawn,     SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
 	{ MODKEY,                       XK_p,      spawn,     SHCMD("rofi-pass") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
