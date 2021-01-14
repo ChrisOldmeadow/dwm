@@ -39,7 +39,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", " "};
+static const char *tags[] = { "", "", "", "", "\uf03d", "", "", "", " "};
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
 static const Rule rules[] = {
 	/* xprop(1):
@@ -47,9 +47,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "st-256color",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "thunar",    NULL,     NULL,          1 << 2,         1,          0,           0,        -1 },
+	{ "Firefox",   NULL,     NULL,          1 << 1,         0,          0,          -1,        -1 },
+	{ "st-256color",NULL,    NULL,           0,             0,          1,           0,        -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,     0,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,     0,			 -1 },
 	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,    0,			 -1 },
