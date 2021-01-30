@@ -49,7 +49,7 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Thunar",    NULL,     NULL,          1 << 2,         1,          0,           0,        -1 },
 	{ "tabbed",   NULL,     NULL,          1 << 1,         0,          0,          -1,        -1 },
-	{ "st-256color",   NULL,     "newsboat",          1 << 1,         0,          0,          -1,        -1 },
+	{ NULL,   NULL,     "newsboat",          1,         0,          0,          -1,        -1 },
 	{ "st-256color",NULL,    NULL,           0,             0,          1,           0,        -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,     0,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,     0,			 -1 },
