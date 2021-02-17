@@ -99,6 +99,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,     SHCMD("st -e newsboat") },
 	{ MODKEY,                       XK_m,      spawn,     SHCMD("st -e neomutt") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
+/*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
