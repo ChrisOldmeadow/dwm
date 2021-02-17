@@ -100,6 +100,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      spawn,     SHCMD("st -e neomutt") },
 	{ MODKEY,                       XK_t,      spawn,     SHCMD("st -e tuir") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
+	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize ~/Pictures/wallpapers/*") },
 /*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
