@@ -39,7 +39,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "\uf03d", "", "", "", " "};
+static const char *tags[] = { "", "", "", "", "\uf03d", "\uf1a1", "\uf001", "", " "};
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
 static const Rule rules[] = {
 	/* xprop(1):
@@ -47,11 +47,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Thunar",    NULL,     NULL,          1 << 2,         1,          0,           0,        -1 },
+	{ "Thunar",    NULL,     NULL,          1 << 2,         0,          0,           0,        -1 },
         { "tabbed",   NULL,     NULL,          1 << 1,         0,          0,          -1,        -1 },
 	{ "st-256color",   NULL,     "newsboat",          1 << 8,         0,          0,          -1,        -1 },
 	{ "st-256color",   NULL,    "neomutt",           1 << 7,             0,          1,           0,        -1 },
-	{ "st-256color",   NULL,    "tuir",           1 << 6,             0,          1,           0,        -1 },
+	{ "st-256color",   NULL,    "tuir",           1 << 5,             0,          1,           0,        -1 },
+	{ "st-256color",   NULL,     "ncmpcpp",          1 << 6,         0,          0,          -1,        -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,     0,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,     0,			 -1 },
 	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,    0,			 -1 },
@@ -95,10 +96,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,     SHCMD("rofi -show run") },
 	{ MODKEY,                       XK_c,      spawn,     SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
 	{ MODKEY,                       XK_p,      spawn,     SHCMD("rofi-pass") },
-	{ MODKEY,                       XK_w,      spawn,     SHCMD("tabbed -c surf -e") },
-	{ MODKEY,                       XK_n,      spawn,     SHCMD("st -e newsboat") },
-	{ MODKEY,                       XK_m,      spawn,     SHCMD("st -e neomutt") },
-	{ MODKEY,                       XK_t,      spawn,     SHCMD("st -e tuir") },
+	{ MODKEY|ShiftMask,                       XK_w,      spawn,     SHCMD("tabbed -c surf -e") },
+	{ MODKEY|ShiftMask,                       XK_n,      spawn,     SHCMD("st -e newsboat") },
+	{ MODKEY|ShiftMask,                       XK_m,      spawn,     SHCMD("st -e neomutt") },
+	{ MODKEY|ShiftMask,                       XK_r,      spawn,     SHCMD("st -e tuir") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
 	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize ~/Pictures/wallpapers/*") },
 /*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
@@ -156,4 +157,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
