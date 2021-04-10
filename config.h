@@ -87,7 +87,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 
 static Key keys[] = {
@@ -98,11 +98,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,     SHCMD("rofi -show run") },
 	{ MODKEY,                       XK_c,      spawn,     SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
 	{ MODKEY,                       XK_p,      spawn,     SHCMD("rofi-pass") },
-	{ MODKEY|Mod1Mask,                       XK_w,      spawn,     SHCMD("tabbed -c surf -e") },
+	{ MODKEY|Mod1Mask,                       XK_w,      spawn,     SHCMD("surf -e") },
 	{ MODKEY|Mod1Mask,                       XK_n,      spawn,     SHCMD("st -e newsboat") },
 	{ MODKEY|Mod1Mask,                       XK_m,      spawn,     SHCMD("st -e neomutt") },
-	{ MODKEY|Mod1Mask,                       XK_t,      spawn,     SHCMD("st -e tuir") },
-	{ MODKEY|Mod1Mask,                       XK_r,      spawn,     SHCMD("st -e ranger") },
+	{ MODKEY|Mod1Mask,                       XK_t,      spawn,     SHCMD("st -e ncmpcpp") },
+	{ MODKEY|Mod1Mask,                       XK_r,      spawn,     SHCMD("st -e tuir") },
+	{ MODKEY|Mod1Mask,                       XK_f,      spawn,     SHCMD("st -e ranger") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
 	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize ~/Pictures/wallpapers/*") },
 /*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
