@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -30,12 +30,12 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd3[] = {"st", "-n", "spcal", "-g", "134x41", "-e", "ikhal", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"spranger",    spcmd2},
-	{"keepassxc",   spcmd3},
+	{"spfm",    spcmd2},
+	{"spcal",   spcmd3},
 };
 
 /* tagging */
@@ -57,7 +57,7 @@ static const Rule rules[] = {
 	{ "st-256color",   NULL,     "ranger",          1 << 2,         0,          0,          -1,        -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,     0,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,     0,			 -1 },
-	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,    0,			 -1 },
+	{ NULL,		  "spcal",	NULL,		SPTAG(2),		1,    0,			 -1 },
         { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -89,6 +89,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
+#include <X11/XF86keysym.h>
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +107,9 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,                       XK_f,      spawn,     SHCMD("st -e ranger") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
 	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize ~/Pictures/wallpapers/*") },
+  { 0, XF86XK_AudioPrev,		spawn,		SHCMD("mpc prev") },
+	{ 0, XF86XK_AudioNext,		spawn,		SHCMD("mpc next") },
+	{ 0, XF86XK_AudioPlay,		spawn,		SHCMD("mpc toggle") },
 /*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -161,3 +165,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
