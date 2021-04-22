@@ -1,6 +1,34 @@
+#+TITLE: The Dynamic Window Manager (DWM) config
+#+AUTHOR: Chris Oldmeadow
+#+DATE: Thu Apr 22 21:59:34 2021
+#+PROPERTY: header-arg :tangle config.def.h
+
+* About
+
+This is a patched version of the dynamic window manager (dwm) with the following
+patches:
+
+- pertag
+- attachaside
+- swallow
+- fullgaps
+- systray
+- scratchpads
+
+There are keybindings to launch
+
+- rofi -show run
+- rofi -show window
+- rofi -show ssh
+- rofi-calc
+- rofi-pass
+
 /* See LICENSE file for copyright and license details. */
 
-/* appearance */
+
+* appearance
+
+#+begin_src c
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -24,6 +52,12 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
+#+end_src
+
+
+* Scratchpads
+
+#+begin_src c
 typedef struct {
 	const char *name;
 	const void *cmd;
@@ -37,8 +71,11 @@ static Sp scratchpads[] = {
 	{"spranger",    spcmd2},
 	{"keepassxc",   spcmd3},
 };
+#+end_src
 
-/* tagging */
+* tagging
+
+#+begin_src c
 static const char *tags[] = { "", "", "", "", "\uf03d", "\uf1a1", "\uf001", "", " "};
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
 static const Rule rules[] = {
@@ -60,8 +97,12 @@ static const Rule rules[] = {
 	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,    0,			 -1 },
         { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
+#+end_src
 
-/* layout(s) */
+
+* layout(s)
+
+#+begin_src c
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
@@ -72,8 +113,12 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
+#+end_src
 
-/* key definitions */
+
+* key definitions
+
+#+begin_src c
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -143,8 +188,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
+#+end_src
 
-/* button definitions */
+* button definitions
+
+#+begin_src c
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
@@ -160,3 +208,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+#+end_src
