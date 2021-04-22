@@ -1,7 +1,7 @@
 #+TITLE: The Dynamic Window Manager (DWM) config
 #+AUTHOR: Chris Oldmeadow
 #+DATE: Thu Apr 22 21:59:34 2021
-#+PROPERTY: header-arg :tangle config.def.h
+#+PROPERTY: header-args :tangle config.def.h
 
 * About
 
@@ -23,10 +23,19 @@ There are keybindings to launch
 - rofi-calc
 - rofi-pass
 
-/* See LICENSE file for copyright and license details. */
+ See LICENSE file for copyright and license details.
 
 
-* appearance
+* Table of contents :toc:
+- [[#about][About]]
+- [[#appearance][Appearance]]
+- [[#scratchpads][Scratchpads]]
+- [[#tagging][Tagging]]
+- [[#layouts][Layout(s)]]
+- [[#key-definitions][Key definitions]]
+- [[#button-definitions][Button definitions]]
+
+* Appearance
 
 #+begin_src c
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -73,7 +82,7 @@ static Sp scratchpads[] = {
 };
 #+end_src
 
-* tagging
+* Tagging
 
 #+begin_src c
 static const char *tags[] = { "", "", "", "", "\uf03d", "\uf1a1", "\uf001", "", " "};
@@ -100,7 +109,7 @@ static const Rule rules[] = {
 #+end_src
 
 
-* layout(s)
+* Layout(s)
 
 #+begin_src c
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
@@ -116,7 +125,7 @@ static const Layout layouts[] = {
 #+end_src
 
 
-* key definitions
+* Key definitions
 
 #+begin_src c
 #define MODKEY Mod4Mask
@@ -190,7 +199,7 @@ static Key keys[] = {
 };
 #+end_src
 
-* button definitions
+* Button definitions
 
 #+begin_src c
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
