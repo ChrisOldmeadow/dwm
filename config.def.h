@@ -98,7 +98,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,                       XK_t,      spawn,     SHCMD("st -e tuir") },
 	{ MODKEY|Mod1Mask,                       XK_r,      spawn,     SHCMD("st -e ranger") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
-	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize ~/Pictures/wallpapers/*") },
+	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize /data/Pictures/wallpapers/*") },
 /*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
