@@ -92,11 +92,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,     SHCMD("rofi -show run") },
 	{ MODKEY,                       XK_c,      spawn,     SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
 	{ MODKEY,                       XK_p,      spawn,     SHCMD("rofi-pass") },
-	{ MODKEY|Mod1Mask,                       XK_w,      spawn,     SHCMD("tabbed -c surf -e") },
+	{ MODKEY|Mod1Mask,                       XK_w,      spawn,     SHCMD("brave") },
 	{ MODKEY|Mod1Mask,                       XK_n,      spawn,     SHCMD("st -e newsboat") },
 	{ MODKEY|Mod1Mask,                       XK_m,      spawn,     SHCMD("st -e neomutt") },
 	{ MODKEY|Mod1Mask,                       XK_t,      spawn,     SHCMD("st -e tuir") },
 	{ MODKEY|Mod1Mask,                       XK_r,      spawn,     SHCMD("st -e ranger") },
+	{ MODKEY|Mod1Mask,                       XK_e,      spawn,     SHCMD("emacs") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
 	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize /data/Pictures/wallpapers/*") },
 /*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
