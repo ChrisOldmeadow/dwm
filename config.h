@@ -44,8 +44,9 @@ static const Rule rules[] = {
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Thunar",    NULL,     NULL,          1 << 2,         0,          0,           0,        -1 },
-    { "tabbed",   NULL,     NULL,          1 << 1,         0,          0,          -1,        -1 },
+	{ "brave-browser",   NULL,     NULL,          1 << 1,         0,          0,          -1,        -1 },
 	{ "st",   NULL,     NULL,       0,         0,          1,          0,        -1 },
+	{ "emacs",   NULL,     NULL,       1 << 1,         0,          1,          0,        -1 },
 	{ "st-256color",   NULL,     "newsboat",          1 << 8,         0,          0,          0,        -1 },
 	{ "st-256color",   NULL,    "neomutt",           1 << 7,             0,          1,           0,        -1 },
 	{ "st-256color",   NULL,    "tuir",           1 << 5,             0,          1,           0,        -1 },
