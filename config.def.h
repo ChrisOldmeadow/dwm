@@ -25,18 +25,18 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd1[] = {"/home/.local/bin/st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd2[] = {"/home/.local/bin/st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
+const char *spcmd3[] = {"/home/.local/bin/st", "-n", "spcalc", "-g" ,"120x34", "-e", "R --quiet", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
-	{"keepassxc",   spcmd3},
+	{"spcalc",   spcmd3},
 };
 
-static const char *tags[] = { "", "", "", "", "\uf03d", "\uf1a1", "\uf001", "", " "};
-/*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
+//static const char *tags[] = { "", "", "", "", "\uf03d", "\uf1a1", "\uf001", "", " "};
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -44,7 +44,7 @@ static const Rule rules[] = {
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Thunar",    NULL,     NULL,          1 << 2,         0,          0,           0,        -1 },
-	{ "brave-browser",   NULL,     NULL,          1 << 1,         0,          0,          -1,        -1 },
+	{ "Firefox",   NULL,     NULL,          1 << 1,         0,          0,          -1,        -1 },
 	{ "st",   NULL,     NULL,       0,         0,          1,          0,        -1 },
 	{ "emacs",   NULL,     NULL,       1 << 1,         0,          1,          0,        -1 },
 	{ "st-256color",   NULL,     "newsboat",          1 << 8,         0,          0,          0,        -1 },
@@ -54,7 +54,7 @@ static const Rule rules[] = {
 	{ "st-256color",   NULL,     "ranger",          1 << 2,         0,          0,          -1,        -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,     0,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,     0,			 -1 },
-	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,    0,			 -1 },
+	{ NULL,		  "spcalc",	NULL,		SPTAG(2),		0,    0,			 -1 },
         { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -82,7 +82,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "/home/chris/.local/bin/st", NULL };
 
 
 static Key keys[] = {
@@ -90,17 +90,16 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,      spawn,     SHCMD("thunar")},
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_r,      spawn,     SHCMD("rofi -show run") },
-	{ MODKEY,                       XK_c,      spawn,     SHCMD("rofi -show calc -modi calc -no-show-match -no-sort") },
-	{ MODKEY,                       XK_p,      spawn,     SHCMD("rofi-pass") },
-	{ MODKEY|Mod1Mask,                       XK_w,      spawn,     SHCMD("brave") },
-	{ MODKEY|Mod1Mask,                       XK_n,      spawn,     SHCMD("st -e newsboat") },
-	{ MODKEY|Mod1Mask,                       XK_m,      spawn,     SHCMD("st -e neomutt") },
-	{ MODKEY|Mod1Mask,                       XK_t,      spawn,     SHCMD("st -e tuir") },
-	{ MODKEY|Mod1Mask,                       XK_r,      spawn,     SHCMD("st -e ranger") },
+	{ MODKEY,                       XK_r,      spawn,     SHCMD("dmenu_run") },
+	{ MODKEY,                       XK_p,      spawn,     SHCMD("/home/chris/.local/bin/passmenu") },
+	{ MODKEY|Mod1Mask,                       XK_w,      spawn,     SHCMD("firefox") },
+	{ MODKEY|Mod1Mask,                       XK_n,      spawn,     SHCMD("/home/chris/.local/bin/st -e newsboat") },
+	{ MODKEY|Mod1Mask,                       XK_m,      spawn,     SHCMD("/home/chris/.local/bin/st -e neomutt") },
+	{ MODKEY|Mod1Mask,                       XK_t,      spawn,     SHCMD("/home/chris/.local/bin/st -e tuir") },
+	{ MODKEY|Mod1Mask,                       XK_r,      spawn,     SHCMD("/home/chris/.local/bin/st -e ranger") },
 	{ MODKEY|Mod1Mask,                       XK_e,      spawn,     SHCMD("emacs") },
 	{ MODKEY,                       XK_s,      spawn,     SHCMD("rofi-surfraw") },
-	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize /data/Pictures/wallpapers/*") },
+	{ MODKEY,                       XK_f,      spawn,     SHCMD("feh --bg-fill --randomize /home/chris/Pictures/wallpapers/*") },
 /*        { MODKEY,                       XK_s,      spawn,     SHCMD("st -T fzf-nova --geometry 90 20 -e ~/src/fzf-nova/fzf-nova") }*/
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
